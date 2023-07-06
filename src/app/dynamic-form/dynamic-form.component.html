@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h2>Add Product</h2>
+                    <form [formGroup]="addProductForm">
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">Name:</label>
+                            <input type="text" formControlName="name" class="form-control" placeholder="Enter Product Name">
+                            <span class="text-danger"
+                            *ngIf="
+                                (addProductFormControl['name'].touched || submitted) &&
+                                addProductFormControl['name'].errors?.['required']"
+                            >
+                            Product name is required
+                            </span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Description:</label>
+                            <textarea formControlName="description" class="form-control" placeholder="Enter Product Description"></textarea>
+                            <span class="text-danger"
+                            *ngIf="
+                                (addProductFormControl['description'].touched || submitted) &&
+                                addProductFormControl['description'].errors?.['required']"
+                            >
+                            Product description is required
+                            </span>
+                        </div>
+                    </form>
+                    
+                    <div class="mb-3" [formGroup]="addVariantForm">
+                        <ng-container formArrayName="variants">
+                            <ng-container *ngFor="let variantForm of variants.controls; let i = index" [formGroupName]="i">
+                                <div class="row">
+                                    <div class="mb-3 mt-3">
+                                        <input formControlName="size" class="form-control" placeholder="Size of variant">
+                                        <span class="text-danger" *ngIf="this.addVariantForm.value.variants[i].size == '' && submitted == true">
+                                            Product variant size is required
+                                        </span>
+                                        <input formControlName="color" class="form-control" placeholder="Color of variant">
+                                        <span class="text-danger" *ngIf="this.addVariantForm.value.variants[i].color == '' && submitted == true">
+                                            Product variant color is required
+                                        </span>
+                                        <input formControlName="price" class="form-control" placeholder="Price of variant">
+                                        <span class="text-danger" *ngIf="this.addVariantForm.value.variants[i].price == '' && submitted == true">
+                                            Product variant price is required
+                                        </span>
+                                        <br />
+                                        <button type="button" class="btn btn-danger btn-sm" (click)="deleteVariant(i)">Delete</button>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                    <button type="button" class="btn btn-success" (click)="addVariant()">Add New Variant</button>
+                    <button type="button" (click)="onSubmit()" class="btn btn-primary">Save Product</button>
+                </div>
+            </div>              
+        </div>
+    </div>
+</div>

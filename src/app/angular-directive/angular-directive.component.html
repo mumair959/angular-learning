@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="row">
+                <h2>Programming Languages</h2>
+                <ul *ngFor="let language of languages" class="list-group">
+                    <li class="list-group-item" *ngIf="language != 'PHP'">{{language}}</li>
+                </ul>
+            </div>              
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="row">
+                <h2>Bootstrap Components</h2>
+
+                <div class="mb-3 mt-3">
+                    <h4>Tooltip</h4>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary"
+                                tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                            Simple demo
+                        </button>
+                    </div>
+
+                    <hr />
+
+                    <h4>Datepicker</h4>
+                    <div class="row">
+                        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                          <input type="text"
+                                placeholder="Datepicker"
+                                class="form-control"
+                                bsDatepicker>
+                        </div>
+                        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                          <input type="text"
+                                placeholder="Daterangepicker"
+                                class="form-control"
+                                bsDaterangepicker>
+                        </div>
+                    </div>
+
+                    <hr />
+                    
+                    <h4>Timepicker</h4>
+                    <div class="row">
+                        <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                            <timepicker [(ngModel)]="mytime"></timepicker>
+                            <pre class="alert alert-info">Time is: {{mytime}}</pre>                            
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <h4>Dropdown</h4>
+                    <div class="row">
+                        <div class="btn-group" dropdown>
+                            <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                                    aria-controls="dropdown-basic">
+                              Button dropdown <span class="caret"></span>
+                            </button>
+                            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                                role="menu" aria-labelledby="button-basic">
+                                <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                                <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li class="divider dropdown-divider"></li>
+                                <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <hr />
+                    
+                    <h4>Modal</h4>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+ 
+                        <ng-template #template>
+                            <div class="modal-header">
+                                <h4 class="modal-title pull-left">Modal</h4>
+                                <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                                <span aria-hidden="true" class="visually-hidden">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                This is a modal.
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>              
+        </div>
+    </div>
+</div>

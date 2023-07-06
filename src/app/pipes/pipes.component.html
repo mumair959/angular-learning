@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="row">
+                <h4>
+
+                    Date: {{ dateToday  }} <br>
+                
+                    Date Pipe: {{ dateToday | date | uppercase}}<br>
+                
+                    Date Pipe: {{ dateToday | date: 'short' | lowercase}} <br>
+                
+                    Name: {{ name | uppercase}} <br>
+                
+                    Name: {{ name | slice:6}} <br>
+
+                    Custom Name: {{ name | custom}}
+                
+                </h4>
+            </div>              
+        </div>
+    </div>
+</div>

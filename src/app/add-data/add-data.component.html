@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="card mt-3">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form [formGroup]="newDataForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">Title:</label>
+                            <input type="text" formControlName="title" class="form-control" placeholder="Enter Title">
+                            <span class="text-danger"
+                            *ngIf="
+                                (newDataFormControl['title'].touched || submitted) &&
+                                newDataFormControl['title'].errors?.['required']"
+                            >
+                            Title is required
+                            </span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message:</label>
+                            <textarea formControlName="message" class="form-control" placeholder="Enter Message"></textarea>
+                            <span class="text-danger"
+                            *ngIf="
+                                (newDataFormControl['message'].touched || submitted) &&
+                                newDataFormControl['message'].errors?.['required']"
+                            >
+                            Message is required
+                            </span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>              
+        </div>
+    </div>
+</div>
